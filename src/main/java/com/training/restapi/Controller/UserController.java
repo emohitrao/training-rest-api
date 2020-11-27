@@ -1,6 +1,7 @@
 package com.training.restapi.Controller;
 
 import com.training.restapi.Dao.UserDao;
+import com.training.restapi.Exception.UserNotFoundException;
 import com.training.restapi.Model.UserModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +21,11 @@ public class UserController {
 
     @GetMapping("/user/{id}")
     public UserModel getUser(@PathVariable int id){
-        return userDao.retrieveUserByUserId(id);
+        UserModel retrieved_user =  userDao.retrieveUserByUserId(id);
+        if(retrieved_user==null){
+            throw new UserNotFoundException("id-"+id);
+        }
+        return retrieved_user;
     }
 
     @PostMapping("/user")

@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class UserModel {
 
-    private int userId;
+    private Integer userId;
 
     private String name;
 
@@ -12,7 +12,7 @@ public class UserModel {
 
     private Date postDate;
 
-    public UserModel(int userId, String name, String postId, Date postDate) {
+    public UserModel(Integer userId, String name, String postId, Date postDate) {
         this.userId = userId;
         this.name = name;
         this.postId = postId;
@@ -22,11 +22,11 @@ public class UserModel {
     protected UserModel() {
     }
 
-    public int getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
